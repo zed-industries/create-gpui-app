@@ -12,24 +12,21 @@ struct Args {
     name: Option<String>,
 }
 
-impl Default for Args {
-    fn default() -> Self {
-        Self {
-            name: Some("gpui_app".to_string()),
-        }
-    }
-}
-
 /// Create a new gpui app
 fn main() {
     let args = Args::parse();
 
-    let project_name = &args.name.unwrap_or_default();
+    let project_name = &args.name.unwrap_or("gpui_app".to_string());
     let project_path = format!("./{}", project_name);
     let src_path = format!("{}/src", project_path);
 
-    create_all(&project_path, false).expect("Failed to create project directory");
-    create_dir(&src_path).expect("Failed to create src directory");
+    if fs::metadata(&project_path).is_ok() {
+        println!("'{}' already exists.", project_name);
+        return;
+    } else {
+        create_all(&project_path, false).expect("Failed to create project directory");
+        create_dir(&src_path).expect("Failed to create src directory");
+    }
 
     let readme_content = templates::default::readme(project_name);
     let cargo_toml_content = templates::default::create_cargo_toml(project_name);
