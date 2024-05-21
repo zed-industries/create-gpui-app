@@ -1,0 +1,8 @@
+[package]
+name = "create-gpui-app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.4", features = ["derive"] }
+fs_extra = "1.2.0"
