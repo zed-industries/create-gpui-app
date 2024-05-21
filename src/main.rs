@@ -12,19 +12,11 @@ struct Args {
     name: Option<String>,
 }
 
-impl Default for Args {
-    fn default() -> Self {
-        Self {
-            name: Some("gpui_app".to_string()),
-        }
-    }
-}
-
 /// Create a new gpui app
 fn main() {
     let args = Args::parse();
 
-    let project_name = &args.name.unwrap_or_default();
+    let project_name = &args.name.unwrap_or("gpui_app".to_string());
     let project_path = format!("./{}", project_name);
     let src_path = format!("{}/src", project_path);
 
