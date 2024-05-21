@@ -1,5 +1,9 @@
 [package]
 name = "create-gpui-app"
+authors = [
+    "Nate Butler <iamnbutler@gmail.com>",
+    "Zed Industries (@zed-industries)",
+]
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
