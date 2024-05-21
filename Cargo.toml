@@ -1,5 +1,7 @@
 [package]
 name = "create-gpui-app"
+description = "A CLI tool to create a new gpui app."
+repository = "https://github.com/zed-industries/create-gpui-app"
 authors = [
     "Nate Butler <iamnbutler@gmail.com>",
     "Zed Industries (@zed-industries)",
