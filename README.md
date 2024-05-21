@@ -8,7 +8,7 @@ GPUI is a fast, productive UI framework for Rust from the creators of [Zed](http
 
 ```sh
 cargo install create-gpui-app
-create-gpui-app my-app
+create-gpui-app --name my-app
 cd my-app
 ```
 
@@ -19,7 +19,7 @@ cd my-app
 To create a new app, run:
 
 ```sh
-create-gpui-app my-app
+create-gpui-app --name my-app
 cd my-app
 ```
 
@@ -32,6 +32,8 @@ my-app
 ├── Cargo.toml
 ├── README.md
 ```
+
+`create-gpui-app` with no arguments will create a new app called `gpui-app`.
 
 ### Running the App
 

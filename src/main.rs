@@ -16,7 +16,7 @@ struct Args {
 fn main() {
     let args = Args::parse();
 
-    let project_name = &args.name.unwrap_or("gpui_app".to_string());
+    let project_name = &args.name.unwrap_or("gpui-app".to_string());
     let project_path = format!("./{}", project_name);
     let src_path = format!("{}/src", project_path);
 
