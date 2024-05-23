@@ -1,8 +1,8 @@
 `create-gpui-app` is open source software, feel free to contribute.
 
-This repository doesn't use issues or discussions as contributions should be made through Pull Requests.
+Contributions should be made through Pull Requests.
 
-Low effort contributions, bike shedding, and overly-specific contributions will be closed.
+Low effort issues & contributions, bike shedding, and overly-specific contributions will be closed.
 
 Feel free to organize discussion in another channel, such as our Zed channels or our community Discord.
 
