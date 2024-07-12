@@ -1,21 +1,4 @@
-pub fn create_cargo_toml(project_name: &str) -> String {
-    r#"[package]
-name = "PROJECT_NAME"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-gpui = { git = "https://github.com/zed-industries/zed" }
-# smallvec is included here for convenience, it is used by gpui when creating
-# components that can have children. uncomment this line or
-# use `cargo add smallvec` to add it to your project
-#smallvec = "1.13.2"
-"#
-    .replace("PROJECT_NAME", project_name)
-}
-
-pub fn create_main() -> &'static str {
-    r#"use gpui::*;
+use gpui::*;
 
 struct HelloWorld {
     text: SharedString,
@@ -53,23 +36,4 @@ fn main() {
             },
         );
     });
-}
-"#
-}
-
-pub fn readme(project_name: &str) -> String {
-    r#"# PROJECT_NAME
-
-Created with Create GPUI App.
-
-- [`gpui`](https://www.gpui.rs/)
-- [GPUI documentation](https://github.com/zed-industries/zed/tree/main/crates/gpui/docs)
-- [GPUI examples](https://github.com/zed-industries/zed/tree/main/crates/gpui/examples)
-
-## Usage
-
-- Ensure Rust is installed - [Rustup](https://rustup.rs/)
-- Run your app with `cargo run`
-"#
-    .replace("PROJECT_NAME", project_name)
 }
