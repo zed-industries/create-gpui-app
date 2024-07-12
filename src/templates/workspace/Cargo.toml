@@ -1,0 +1,13 @@
+[workspace]
+members = ["crates/PROJECT_NAME"]
+default-members = ["crates/PROJECT_NAME"]
+resolver = "2"
+
+[workspace.dependencies]
+PROJECT_NAME = { path = "crates/PROJECT_NAME" }
+
+gpui = { git = "https://github.com/zed-industries/zed" }
+# smallvec is included here for convenience, it is used by gpui when creating
+# components that can have children. uncomment this line or
+# use `cargo add smallvec` to add it to your project
+#smallvec = "1.13.2"
