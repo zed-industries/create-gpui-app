@@ -22,7 +22,7 @@ fn copy_and_replace(
 
     for entry in source_dir.entries() {
         let relative_path = entry.path().strip_prefix(source_dir.path()).unwrap();
-        let entry_path = &destination_path.join(relative_path);
+        let entry_path = destination_path.join(relative_path);
         match entry {
             DirEntry::Dir(dir) => {
                 copy_and_replace(&dir, &entry_path, project_name)?;
