@@ -31,7 +31,6 @@ fn copy_and_replace(
     for entry in source_dir.entries() {
         let relative_path = entry.path().strip_prefix(source_dir.path()).unwrap();
         let entry_path = new_destination_path.join(relative_path);
-        println!("{:?}", entry_path);
         match entry {
             DirEntry::Dir(dir) => copy_and_replace(&dir, &entry_path, project_name)?,
             DirEntry::File(file) => {
