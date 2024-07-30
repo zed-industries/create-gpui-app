@@ -33,6 +33,26 @@ my-app
 ├── README.md
 ```
 
+To set up your application as a workspace, run:
+
+```sh
+create-gpui-app --workspace --name my-app
+cd my-app
+```
+
+This will output a directory structure like this:
+
+```
+my-app
+├── Cargo.toml
+├── crates
+│   └── my-app
+│       ├── Cargo.toml
+│       └── src
+│           └── main.rs
+└── README.md
+```
+
 `create-gpui-app` with no arguments will create a new app called `gpui-app`.
 
 ### Running the App
