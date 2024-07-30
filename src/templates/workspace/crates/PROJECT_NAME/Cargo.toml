@@ -1,0 +1,12 @@
+[package]
+name = "PROJECT_NAME"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "PROJECT_NAME"
+path = "src/main.rs"
+
+[dependencies]
+gpui.workspace = true
