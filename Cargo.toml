@@ -9,6 +9,7 @@ authors = [
 version = "0.1.1"
 edition = "2021"
 license = "MIT"
+pre-release-hook = ["git", "cliff", "-o", "CHANGELOG.md", "--tag", "{{version}}" ]
 
 [dependencies]
 clap = { version = "4.5.4", features = ["derive"] }
