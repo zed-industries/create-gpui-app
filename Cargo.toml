@@ -18,3 +18,8 @@ include_dir = "0.7.4"
 [[bin]]
 name = "create-gpui-app"
 path = "src/main.rs"
+
+include = [
+    "src/**/*",
+    "Cargo.toml",
+]
