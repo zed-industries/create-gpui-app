@@ -1,10 +1,3 @@
-# git-cliff ~ default configuration file
-# https://git-cliff.org/docs/configuration
-#
-# Lines starting with "#" are comments.
-# Configuration options are organized into tables and keys.
-# See documentation for more information on available options.
-
 [changelog]
 # template for the changelog footer
 header = """
@@ -36,7 +29,7 @@ footer = """
 trim = true
 # postprocessors
 postprocessors = [
-  # { pattern = '<REPO>', replace = "https://github.com/orhun/git-cliff" }, # replace repository URL
+  { pattern = '<REPO>', replace = "https://github.com/zed-industries/create-gpui-app" }, # replace repository URL
 ]
 
 [git]
