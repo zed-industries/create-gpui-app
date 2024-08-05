@@ -1,8 +1,8 @@
 use clap::Parser;
-use dirs::{DEFAULT_TEMPLATE_DIR, WORKSPACE_TEMPLATE_DIR};
-use include_dir::{Dir, DirEntry};
+use include_dir::{include_dir, Dir, DirEntry};
 use std::{fs, io, path::Path};
-mod dirs;
+
+static TEMPLATES_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR");
 
 #[derive(Parser, Debug)]
 #[clap(version, about, long_about = None)]
@@ -60,9 +60,9 @@ fn main() -> io::Result<()> {
 
     copy_and_replace(
         if is_workspace {
-            &WORKSPACE_TEMPLATE_DIR
+            TEMPLATES_DIR.get_dir("src/templates/workspace").unwrap()
         } else {
-            &DEFAULT_TEMPLATE_DIR
+            TEMPLATES_DIR.get_dir("src/templates/default").unwrap()
         },
         project_path,
         &project_name,
