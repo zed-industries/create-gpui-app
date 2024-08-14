@@ -2,7 +2,7 @@ use clap::Parser;
 use include_dir::{include_dir, Dir, DirEntry};
 use std::{fs, io, path::Path};
 
-static TEMPLATES_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/src/templates");
+static TEMPLATES_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/templates");
 
 #[derive(Parser, Debug)]
 #[clap(version, about, long_about = None)]
@@ -36,7 +36,12 @@ fn copy_and_replace(
             DirEntry::File(file) => {
                 if let Some(content) = file.contents_utf8() {
                     let new_content = content.replace(WORD_TO_REPLACE, project_name);
-                    fs::write(&entry_path, new_content)?;
+                    let new_entry_path = if file.path().file_name().unwrap() == "_Cargo.toml" {
+                        entry_path.with_file_name("Cargo.toml")
+                    } else {
+                        entry_path.to_owned()
+                    };
+                    fs::write(&new_entry_path, new_content)?;
                 }
             }
         }
