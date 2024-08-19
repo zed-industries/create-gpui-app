@@ -60,6 +60,9 @@ my-app
 - During development: `cargo run`
 - For production/performance testing: `cargo build --release`
 
+### Troubleshooting
+See the [zed development troubleshooting guide](https://github.com/zed-industries/zed/blob/main/docs/src/development/macos.md#troubleshooting) for assistance with common errors.
+
 ## Contributing
 
 Your contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
