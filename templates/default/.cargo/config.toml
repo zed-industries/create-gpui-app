@@ -1,0 +1,2 @@
+[build]
+rustflags = ["-Clink-arg=-z", "-Clink-arg=nostart-stop-gc"]
