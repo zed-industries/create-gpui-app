@@ -5,7 +5,7 @@ struct HelloWorld {
 }
  
 impl Render for HelloWorld {
-    fn render(&mut self, _cx: &mut ViewContext<Self>) -> impl IntoElement {
+    fn render(&mut self, _window: &mut Window, _cx: &mut Context<Self>) -> impl IntoElement {
         div()
             .flex()
             .bg(rgb(0x2e7d32))
@@ -17,11 +17,11 @@ impl Render for HelloWorld {
             .child(format!("Hello, {}!", &self.text))
     }
 }
- 
+
 fn main() {
-    App::new().run(|cx: &mut AppContext| {
-        cx.open_window(WindowOptions::default(), |cx| {
-            cx.new_view(|_cx| HelloWorld {
+    Application::new().run(|cx: &mut App| {
+        cx.open_window(WindowOptions::default(), |_, cx| {
+            cx.new(|_cx| HelloWorld {
                 text: "World".into(),
             })
         })
