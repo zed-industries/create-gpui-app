@@ -7,12 +7,13 @@ use std::{
 };
 
 static TEMPLATES_DIR: Dir<'_> = include_dir!("$CARGO_MANIFEST_DIR/templates");
+static DEFAULT_PROJECT_NAME: &str = "gpui-app";
 
 #[derive(Parser, Debug)]
 #[clap(version, about, long_about = None)]
 struct Args {
     /// Name of the new project
-    #[clap(short, long, default_value = "gpui-app")]
+    #[clap(short, long, default_value = DEFAULT_PROJECT_NAME, value_parser = parse_name)]
     name: Option<String>,
     /// Setup your project as a workspace
     #[clap(short, long)]
@@ -20,6 +21,14 @@ struct Args {
     /// Setup a zed style project
     #[clap(short, long)]
     zed: bool,
+}
+
+fn parse_name(name: &str) -> Result<String> {
+    if name.is_empty() {
+        Ok(DEFAULT_PROJECT_NAME.to_string())
+    } else {
+        Ok(name.to_string())
+    }
 }
 
 fn copy_and_replace(
